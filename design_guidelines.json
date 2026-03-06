@@ -1,0 +1,185 @@
+{
+  "design_system": {
+    "name": "Kitchen Intelligence Platform",
+    "theme": "dark",
+    "archetype": "The Performance Pro (Culinary Ops Edition)",
+    "description": "A high-density, mission-critical interface for professional kitchens. Establishes a 'Cockpit' feel for chefs and managers. Prioritizes data legibility over decoration.",
+    "tech_stack_constraints": "React + Tailwind + Shadcn (Environment). Design MUST mimic the density and structure of Enterprise Angular/Material apps as requested by user.",
+    "typography": {
+      "headings": {
+        "family": "Manrope",
+        "weights": ["600", "700"],
+        "tracking": "-0.02em",
+        "usage": "Page titles, widget headers, modal titles. Sharp, modern, legible."
+      },
+      "body": {
+        "family": "Inter",
+        "weights": ["400", "500"],
+        "usage": "General descriptive text, instructions."
+      },
+      "data": {
+        "family": "JetBrains Mono",
+        "weights": ["400", "500"],
+        "usage": "Inventory counts, prices, waste metrics, temperature logs, IDs. CRITICAL for the 'Technical' feel."
+      }
+    },
+    "colors": {
+      "background": {
+        "default": "#09090b",
+        "paper": "#121214",
+        "subtle": "#18181b"
+      },
+      "primary": {
+        "main": "#10b981",
+        "hover": "#059669",
+        "foreground": "#ffffff",
+        "description": "Emerald Green. Symbolizes Freshness, Profit, and Sustainability."
+      },
+      "secondary": {
+        "main": "#f97316",
+        "foreground": "#ffffff",
+        "description": "Thermal Orange. Symbolizes Heat, Cooking, Waste Alerts, and Action."
+      },
+      "neutral": {
+        "border": "#27272a",
+        "text_primary": "#f4f4f5",
+        "text_secondary": "#a1a1aa",
+        "text_muted": "#52525b"
+      },
+      "status": {
+        "success": "#10b981",
+        "warning": "#f59e0b",
+        "error": "#ef4444",
+        "info": "#3b82f6"
+      }
+    },
+    "spacing": {
+      "container_padding": "p-4 md:p-6 lg:p-8",
+      "grid_gap": "gap-4 md:gap-6",
+      "section_gap": "space-y-6"
+    },
+    "radius": {
+      "default": "rounded-sm",
+      "card": "rounded-sm",
+      "button": "rounded-sm",
+      "input": "rounded-sm",
+      "note": "Almost sharp edges to convey precision and industrial reliability."
+    },
+    "shadows": {
+      "card": "none",
+      "dropdown": "0 10px 15px -3px rgba(0, 0, 0, 0.5)",
+      "glow": "0 0 10px rgba(16, 185, 129, 0.2)"
+    },
+    "borders": {
+      "default": "1px solid #27272a",
+      "active": "1px solid #3f3f46",
+      "focus": "2px solid #10b981"
+    }
+  },
+  "layout_strategies": {
+    "dashboard_grid": {
+      "type": "Bento Grid Mode B (High Density)",
+      "className": "grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[minmax(180px,auto)]",
+      "rules": [
+        "No wasted whitespace.",
+        "Widgets must fill their container height (h-full).",
+        "Use col-span-X to organize hierarchy."
+      ]
+    },
+    "page_structure": {
+      "wrapper": "min-h-screen bg-background text-foreground flex flex-col md:flex-row",
+      "sidebar": "w-64 border-r border-border bg-card hidden md:flex flex-col fixed h-full z-30",
+      "main_content": "flex-1 md:ml-64 p-6 overflow-y-auto"
+    }
+  },
+  "components": {
+    "Card": {
+      "path": "@/components/ui/card",
+      "style": "bg-card border border-border rounded-sm shadow-none",
+      "header_style": "p-4 border-b border-border flex justify-between items-center",
+      "content_style": "p-4"
+    },
+    "Button": {
+      "path": "@/components/ui/button",
+      "style": "rounded-sm font-medium tracking-wide uppercase text-xs shadow-none transition-all duration-200",
+      "variants": {
+        "default": "bg-primary text-primary-foreground hover:bg-primary/90",
+        "outline": "border border-input bg-transparent hover:bg-accent hover:text-accent-foreground",
+        "ghost": "hover:bg-accent hover:text-accent-foreground",
+        "destructive": "bg-destructive text-destructive-foreground hover:bg-destructive/90"
+      }
+    },
+    "Input": {
+      "path": "@/components/ui/input",
+      "style": "bg-background/50 border-input focus:ring-1 focus:ring-primary rounded-sm h-9 text-sm font-mono"
+    },
+    "Table": {
+      "path": "@/components/ui/table",
+      "style": "w-full caption-bottom text-sm",
+      "header_style": "border-b h-10 bg-muted/50 text-muted-foreground font-medium uppercase text-xs tracking-wider",
+      "row_style": "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted h-12"
+    },
+    "Badge": {
+      "path": "@/components/ui/badge",
+      "style": "rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary/20 text-primary hover:bg-primary/30"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": "use only for sticky headers: bg-background/80 backdrop-blur-md border-b border-border/50",
+    "textures": "Add a subtle noise texture to the background if possible to reduce 'flatness' of pure dark colors.",
+    "gradients": "Avoid full gradients. Use subtle gradient borders or glows on active states."
+  },
+  "motion": {
+    "hover": "transition-colors duration-200",
+    "enter": "animate-in fade-in zoom-in-95 duration-200",
+    "exit": "animate-out fade-out zoom-out-95 duration-200",
+    "list_stagger": "stagger-children"
+  },
+  "charts": {
+    "library": "recharts",
+    "theme": {
+      "background": "transparent",
+      "text": "#a1a1aa",
+      "grid": "#27272a",
+      "colors": ["#10b981", "#f97316", "#3b82f6", "#ef4444", "#8b5cf6"]
+    }
+  },
+  "image_urls": {
+    "hero_chef": {
+      "url": "https://images.unsplash.com/photo-1771360963016-1408c2de12c4?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Professional chef plating food in dark kitchen",
+      "usage": "Login page background, Hero section"
+    },
+    "kitchen_staff": {
+      "url": "https://images.unsplash.com/photo-1767785990437-dfe1fe516fe8?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Kitchen staff working busy shift",
+      "usage": "About page, Team section, Dashboard widget background (dimmed)"
+    },
+    "ingredients_fresh": {
+      "url": "https://images.unsplash.com/photo-1749756431181-0d13999ff270?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Fresh vegetables dark moody",
+      "usage": "Inventory page header, Recipe AI generation context"
+    },
+    "ingredients_prep": {
+      "url": "https://images.unsplash.com/photo-1692301100758-a65e560b8c49?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Chef prepping ingredients",
+      "usage": "Recipe management, Prep lists"
+    },
+    "kitchen_equipment": {
+      "url": "https://images.unsplash.com/photo-1584910799193-44ff686a1b7b?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Stainless steel kitchen equipment",
+      "usage": "Equipment maintenance logs, Background textures"
+    }
+  },
+  "universal_guidelines": [
+    "TECH STACK: React, Tailwind, Shadcn. Mimic Enterprise Angular density.",
+    "Dark Mode is MANDATORY and DEFAULT. No light mode toggle needed unless requested.",
+    "Use 'JetBrains Mono' for ALL numbers (prices, weights, IDs, dates).",
+    "Borders are your friend in dark mode. Use 1px borders to define hierarchy, not shadows.",
+    "Data-Density: High. Avoid massive paddings inside data tables. Keep it compact.",
+    "All interactive elements must have `data-testid` for testing.",
+    "Never use generic 'Lorem Ipsum'. Use culinary terms (Mise en place, Sous Vide, FIFO, Par Levels).",
+    "Status colors: Green = Good/Fresh, Orange = Warning/Expiring, Red = Critical/Waste.",
+    "Navigation: Sidebar is preferred for enterprise apps over top nav."
+  ]
+}
