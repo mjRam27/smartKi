@@ -1,0 +1,10 @@
+export { LoginPage } from './LoginPage';
+export { RegisterPage } from './RegisterPage';
+export { DashboardPage } from './DashboardPage';
+export { RecipesPage } from './RecipesPage';
+export { AIRecipeGeneratePage } from './AIRecipeGeneratePage';
+export { IngredientsPage } from './IngredientsPage';
+export { InventoryPage } from './InventoryPage';
+export { SuppliersPage } from './SuppliersPage';
+export { WastePage } from './WastePage';
+export { KitchensPage } from './KitchensPage';
